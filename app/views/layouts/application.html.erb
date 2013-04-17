@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palgo</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">Palgo</a>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/user_header' %>
+<%= yield %>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
