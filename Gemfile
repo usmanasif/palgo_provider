@@ -22,6 +22,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
+gem 'twilio-ruby'
 
 
 # To use ActiveModel has_secure_password

@@ -1,15 +1,25 @@
 Palgo::Application.routes.draw do
 
   get "users/show"
+  #get "users/confirmation/check_mobile_code"
 
   get "home/index"
 
   use_doorkeeper
 
-  devise_for :users
+  devise_for :users,
+             :controllers => {
+                 :registrations => "devise/custom/registrations",
+                 :confirmations => "devise/custom/confirmations",
+
+             }
+  devise_for :users do
+             post 'users/confirmation/check_mobile_code', :to => 'devise/custom/confirmations#check_mobile_code'
+             end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  match 'twilio/process_sms' => 'twilio#process_sms'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

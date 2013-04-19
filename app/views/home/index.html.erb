@@ -3,16 +3,14 @@
       <h1>Welcome <%= current_user.full_name %></h1>
 
       <p class="lead">
-        You have signed in! If this were a real app some sweet conent
-        would go here. But it's just a test. You might want to sign out now.
+        Your account was successfully confirmed. You are now signed in.
       </p>
       <%= link_to "Sign Out", destroy_user_session_path, :class => 'btn btn-large btn-danger' %>
   <% else %>
-      <h1>Welcome, new user!</h1>
+      <h2>Welcome, new user!</h2>
 
       <p class="lead">
-        You must sign in or sign up before you can access our super sweet,
-        top secret content.
+        You will receive an email with instructions after sign up about how to unlock your account in a few minutes.
       </p>
 
       <div class="row-fluid">

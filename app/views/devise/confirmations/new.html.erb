@@ -1,12 +1,17 @@
-<h2>Resend confirmation instructions</h2>
+<div class="jumbotron border-form-div well">
+  <h2>Activate Your Account</h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= form_for(resource, :as => resource_name, :url => user_confirmation_path) do |f| %>
+      <%= devise_error_messages! %>
+      <div>
+        <% flash.each do |name, msg| %>
+            <%= msg %>
+        <% end %>
+      </div>
+      <div><%= f.label :Enter_mobile_code %>
+        <br/>
+        <%= f.text_field :mobile_code, :value => "", :autofocus => true %></div>
+      <%= f.hidden_field :confirmation_token, :value => params[:confirmation_token] %>
+      <div><%= f.submit "confirmation", :class => "btn btn-success" %></div>
+  <% end %>
+</div>
